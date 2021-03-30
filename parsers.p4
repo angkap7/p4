@@ -24,14 +24,14 @@ parser MyParser(packet_in packet,
    
    state parse_tcp{
     packet.extract(hdr.tcp){
-    set_metadata(l4_metadata_.srcPort, tcp.srcPort); //?????? p4_16
-    set_metadata(l4_metadata_.dstPort, tcp.dstPort); //???
+    set_metadata(l4_metadata_t.srcPort, tcp.srcPort); //?????? p4_16
+    set_metadata(l4_metadata_t.dstPort, tcp.dstPort); //???
     transition accept;
    }
    
    state parse_udp{
     packet.extract(hdr.udp){
-    set_metadata(l4_metadata_.srcPort, udp.srcPort); //?????? p4_16
-    set_metadata(l4_metadata_.dstPort, udp.dstPort); //???
+    set_metadata(l4_metadata_t.srcPort, udp.srcPort); //?????? p4_16
+    set_metadata(l4_metadata_t.dstPort, udp.dstPort); //???
     transition accept;
    }
